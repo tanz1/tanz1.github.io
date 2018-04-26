@@ -121,16 +121,7 @@ width: 37%;
     font-size: 1em;
 }
 
-.output
-{
-    margin-right: auto;
-    margin-left: auto;
-    position: relative;
-    width: 25%;
-    height: 10%;
-    font-size: 2em;
-    text-align: center; 
-}
+
 
 .energytips
 {
@@ -259,9 +250,10 @@ a {
 }
 .output
 {
-    padding-bottom:1em;
-    height: 5%;
-    width: 100%;
+    font-size:150%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
 }
 .outputDiv
 {
