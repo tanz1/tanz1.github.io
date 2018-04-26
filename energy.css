@@ -1,0 +1,269 @@
+/* source url https://github.com/mranenko/hamburger-menu for hamburger menu*/
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+  *:focus {
+    outline: none; }
+ 
+
+    
+@font-face
+{
+	font-family: appfont;
+	src: url(Mono.ttf);
+    /* This freeware font is the property of Kevin Richey.  © 2009. All rights reserved.
+
+            This font may be used for any commercial and non-commercial use.  Feel free to pass it along, but please include this document.  I also ask that you send me an email to let me know what you think of it and where you got it (just so I know where it is floating around).  I would very much appreciate it.
+
+            Kevin Richey is not liable for any damages or loss, including, but not limited to, damages from loss of business profit, business interruption, and loss of business information, due to the use of this product, or inability to use this product.  This font is a Freeware product and not intended for sale.  By installing this font, you have agreed to the above terms. 
+
+            Thanks again and keep creating!!
+
+            Kevin
+
+            email: logan_kruger@hotmail.com
+        */
+}
+
+body
+{
+    font-family: appfont;
+
+}
+.description
+{
+    margin-left:auto;
+    margin-right; auto;
+    text-align: center;
+    font-size: 100%
+    
+}
+.logodiv
+{
+    margin-left: auto;
+    margin-right: auto;
+    height: 10%;
+    width: 10%;
+    
+}
+
+.optionDiv
+{
+    border: none;
+    margin-left:auto;
+    margin-right:auto;
+    width: 70%;
+}
+
+
+.appliance
+{
+color: black;
+font-size: 160%;
+font-family: appfont;
+border-style: solid;
+border-width: medium;
+border-color: black;
+width: 55%;
+height: 10%;
+}
+.num
+{
+color: black;
+font-size: 160%;
+font-family: appfont;
+border-style: solid;
+border-width: medium;
+border-color: black;
+width: 20%;
+height: 10%
+}
+
+.Logo 
+{
+    margin-right: auto;
+    margin-left: auto;
+	position: relative;
+    height: 100%;
+}
+.buttonDiv
+{
+margin-right: auto;
+margin-left: auto;
+position: relative;
+height: 10%;
+width: 37%;
+}
+
+
+.calcButton
+{
+    width:100%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    height:100%;
+    font-size: 1em;
+}
+.addButton
+{
+    width:100%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    height:100%;
+    font-size: 1em;
+}
+
+.output
+{
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    width: 25%;
+    height: 10%;
+    font-size: 2em;
+    text-align: center; 
+}
+
+.energytips
+{
+    width: 30%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+}
+.aboutus
+{
+    width: 30%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+}
+
+a {
+  color: black;
+  cursor: pointer;
+  text-decoration: none; }
+  a:hover {
+    opacity: 0.8; }
+
+/* nav toggle */
+.nav-toggle {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  height: 2rem;
+  left: 1rem; 
+  position: fixed;
+  top: 1rem;
+  width: 2rem;
+  z-index: 2; }
+  .nav-toggle:hover {
+    opacity: 0.8; }
+  .nav-toggle .nav-toggle-bar,
+  .nav-toggle .nav-toggle-bar::after,
+  .nav-toggle .nav-toggle-bar::before {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background: black;
+    content: '';
+    height: 0.2rem;
+    width: 100%; }
+  .nav-toggle .nav-toggle-bar {
+    margin-top: 0; }
+  .nav-toggle .nav-toggle-bar::after {
+    margin-top: 0.4rem; }
+  .nav-toggle .nav-toggle-bar::before {
+    margin-top: -0.4rem; }
+  .nav-toggle.expanded .nav-toggle-bar {
+    background: transparent; }
+  .nav-toggle.expanded .nav-toggle-bar::after, .nav-toggle.expanded .nav-toggle-bar::before {
+    background: white;
+    margin-top: 0; }
+  .nav-toggle.expanded .nav-toggle-bar::after {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .nav-toggle.expanded .nav-toggle-bar::before {
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+    
+.maja
+{
+    height: 3em;
+}
+
+/* nav */
+.nav {
+  -webkit-transition: left 0.5s ease;
+  -moz-transition: left 0.5s ease;
+  -ms-transition: left 0.5s ease;
+  -o-transition: left 0.5s ease;
+  transition: left 0.5s ease;
+  background: gray;
+  color: white;
+  cursor: pointer;
+  font-size: 2rem;
+  height: 100vh;
+  left: -20rem;
+  padding: 6rem 2rem 2rem 2rem;
+  position: fixed;
+  top: 0;
+  width: 20rem;
+  z-index: 1; }
+  .nav.expanded {
+    left: 0; }
+  .nav ul {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+.powercomp
+{   
+    margin-left:auto;
+    margin-right:auto;
+    left:10%;
+    right:10%;
+    position: relative;
+    width:75%;
+    height:10%;
+    font-family: appfont;
+    font-size:160%;
+    border:solid;
+    
+}
+.paddingDiv
+{
+    padding-top:2%
+}
+.output
+{
+    height: 5%;
+    width: 100%;
+}
+.outputDiv
+{
+    padding-top:5%
+}
+/*# sourceMappingURL=nav.css.map */

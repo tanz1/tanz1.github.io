@@ -1,7 +1,105 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE = html>
+<html manifest="offline.appcahce">
+<head>
+<meta name="viewport" content= "width=device-width, initial-scale=1" charset = "utf-8">
+<link rel="stylesheet" type="text/css" href= "energy.css">
+<link rel="icon" type="image/png" href="icon.png">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<title>Maja Energy Calculator
+</title>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<div class="nav-toggle">
+	<div class="nav-toggle-bar"></div>
+</div>
+<div class = "logodiv">
+     <img src="Logo.png" class="Logo" alt="logo">
+</div>
+<!--navigation -->
+<nav class="nav">
+	<ul>
+		<li><a id="home">Home</a></li>
+        <li> </li>
+		<li><a id="tips">Energy Saving Tips</a></li>
+        <li> </li>
+		<li><a id="about">Team</a></li>
+	</ul>
+</nav>
+<!-- nav ends -->
+<!-- Caclulator and Selection -->
+<div id="calculator">
+    <div class = "description">
+    </div>
+        <div class="optionDiv">
+              <select class="appliance" name="appliance" id="appliance1">
+            </select>       
+            <select class = "num" name="quantity" id="quantity1">
+            </select>
+            <select class = "num" name="hours" id="hours1">
+          </select>
+        </div>
+        <div class="optionDiv">
+              <select class="appliance" name="appliance" id="appliance2">
+            </select>
+            <select class = "num" name="quantity" id="quantity2">
+            </select>
+            <select class = "num" name="hours" id="hours2">
+          </select>
+        </div>
+        <div class="optionDiv">
+              <select class="appliance" name="appliance" id="appliance3">
+            </select>
+            <select class = "num" name="quantity" id="quantity3">
+            </select>
+            <select class = "num" name="hours" id="hours3">
+          </select>
+        </div>
+        <div class="optionDiv">
+              <select class="appliance" name="appliance" id="appliance4">
+            </select>
+            <select class = "num" name="quantity" id="quantity4">
+            </select>
+            <select class = "num" name="hours" id="hours4">
+          </select>
+        </div>
+        <div class="optionDiv">
+              <select class="appliance" name="appliance" id="appliance5">
+            </select>
+            <select class = "num" name="quantity" id="quantity5">
+            </select>
+            <select class = "num" name="hours" id="hours5">
+          </select>
+        </div>
+        <var id = "appendSelect"></var>
+        <div class= "paddingDiv"></div>
+        <div class = "optionDiv">
+             <select class = "powercomp" name="powercomp" id="powercomp">
+            <option value = .12>US Standard Power Inc. </option>
+            </select>
+         </div>
+     <div> </div>
+     <div class="buttonDiv">
+     <button class="addButton" onclick="addSel()">Add more appliances</button>
+     <div class="paddingDiv"></div>
+     <button class="calcButton" onclick="calculate()">Calculate</button>
+     </div>
+     <div class="paddingDiv"></div>
+     <div class ="outputDiv">
+    <div id="output" class="output"></div>
+    <div id="billOutput" class="output"></div>
+    </div>
+</div>
+<!--calculator ends -->
+<!-- Energy tips -->
+<!-- hiding assistance from https://stackoverflow.com/questions/6094204/hide-div-when-page-load -->
+<div class="energytips" id="energytips" style="display:none">
+Don't forget to turn off the lights!
+</div>
+<!--about us -->
+<div class="aboutus" id="aboutus" style="display:none">
+<li>Developed by Team Maja.</li>
+<li> Send bug reports to teammaja@gmail.com </li>
+</div>
+<script src="calc.js"></script>
 </body>
 </html>
