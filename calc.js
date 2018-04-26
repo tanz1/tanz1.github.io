@@ -61,7 +61,8 @@ function calculate()
        var bill =(getUtil * wattTotal).toFixed(2);
        
        document.getElementById("output").innerHTML =  wattTotal.toFixed(3) + ' KWH Used';
-       document.getElementById("billOutput").innerHTML = "$" + bill + " energy cost for 1 day";
+       document.getElementById("billOutput").innerHTML = "$" + bill;
+       document.getElementById("statement").innerHTML = "cost for 1 day"
        // assistance from https://stackoverflow.com/questions/16057672/sum-values-from-an-array-in-javascript
 }
 

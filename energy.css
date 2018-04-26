@@ -255,10 +255,11 @@ a {
 }
 .paddingDiv
 {
-    padding-top:2%
+    padding-top:%10;
 }
 .output
 {
+    padding-bottom:1em;
     height: 5%;
     width: 100%;
 }
