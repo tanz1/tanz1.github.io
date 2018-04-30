@@ -58,14 +58,15 @@ body
     border: none;
     margin-left:auto;
     margin-right:auto;
-    width: 70%;
+    width: 95%;
+    font-size: 100%;
 }
 
 
 .appliance
 {
 color: black;
-font-size: 160%;
+font-size: 2vmax;
 font-family: appfont;
 border-style: solid;
 border-width: medium;
@@ -76,7 +77,7 @@ height: 10%;
 .num
 {
 color: black;
-font-size: 160%;
+font-size: 2vmax;
 font-family: appfont;
 border-style: solid;
 border-width: medium;
@@ -109,7 +110,9 @@ width: 37%;
     margin-left: auto;
     position: relative;
     height:100%;
-    font-size: 1em;
+    font-size: 2vmax;
+    font-family:appfont;
+    
 }
 .addButton
 {
@@ -118,7 +121,8 @@ width: 37%;
     margin-left: auto;
     position: relative;
     height:100%;
-    font-size: 1em;
+    font-size: 2vmax;
+    font-family:appfont;
 }
 
 
@@ -240,7 +244,7 @@ a {
     width:75%;
     height:10%;
     font-family: appfont;
-    font-size:160%;
+    font-size:2vmax;
     border:solid;
     
 }
@@ -260,3 +264,13 @@ a {
     padding-top:5%
 }
 /*# sourceMappingURL=nav.css.map */
+.reset
+{
+    width:100%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    height:100%;
+    font-size: 2vmax;
+    font-family:appfont;
+}

@@ -1,6 +1,8 @@
 //add boxes
+var buttonCount = 0
 function addSel()
-{
+{  
+   buttonCount = buttonCount + 1
    var getLen = document.getElementsByClassName("appliance").length ;
    var getIDNum = getLen + 1;
   $("#appendSelect").append( "<div class=\"optionDiv\"><select class=\"appliance\" name=\"appliance\" id=\"appliance"+getIDNum+"\"></select><var> </var><select class = \"num\" name=\"quantity\" id=\"quantity"+getIDNum+"\"></select><var> </var><select class = \"num\" name=\"hours\" id=\"hours"+getIDNum+"\"></select></div>")
@@ -10,9 +12,9 @@ function addSel()
                       {text:ob.text,
                         value:ob.value}));
     });
-var appNum = document.getElementsByClassName("appliance").length;
-var count
-for (count = 0; count <= appNum; count++)
+var appNum = document.getElementsByClassName("appliance").length + buttonCount;
+var count;
+for (count = 5+buttonCount; count <= appNum; count++)
     {
     $('#appliance'+count).html(options.html());
     }
@@ -23,9 +25,9 @@ for (count = 0; count <= appNum; count++)
                       {text:ob.text,
                         value:ob.value}));
     });
-var appNum2 = document.getElementsByName("hours").length;
-var count2
-for (count2 = 0; count2 <= appNum2; count2++)
+var appNum2 = document.getElementsByName("hours").length+buttonCount;
+var count2;
+for (count2 = 5+buttonCount; count2 <= appNum2; count2++)
     {
     $('#hours'+count2).html(options2.html());
     }
@@ -35,9 +37,9 @@ for (count2 = 0; count2 <= appNum2; count2++)
                       {text:ob.text,
                         value:ob.value}));
     });
-var appNum3 = document.getElementsByName("quantity").length;
-var count3
-for (count3 = 0; count3 <= appNum3; count3++)
+var appNum3 = document.getElementsByName("quantity").length+buttonCount;
+var count3;
+for (count3 = 5+buttonCount; count3 <= appNum3; count3++)
     {
     $('#quantity'+count3).html(options3.html());
     }
@@ -101,6 +103,21 @@ $(document).ready(function(){
         $("#calculator").hide();
         $("#aboutus").show();
         $("#energytips").hide();
+    });
+    $(".calcButton").click(function(){
+        $(".optionDiv").hide();
+        $(".reset").show();
+        $(".calcButton").hide();
+        $(".addButton").hide();
+        $(".output").show();
+    });
+    $(".reset").click(function(){
+        $(".optionDiv").show();
+        $(".calcButton").show();
+        $(".addButton").show();
+        $(".reset").hide();
+        $(".output").hide();
+        
     });
 });
 //source url for jquery: https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_hide_show 

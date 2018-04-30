@@ -18,7 +18,7 @@
 <!--navigation -->
 <nav class="nav">
 	<ul>
-		<li><a id="home">Home</a></li>
+		<li><a id="home">Calculator</a></li>
         <li> </li>
 		<li><a id="tips">Energy Saving Tips</a></li>
         <li> </li>
@@ -28,6 +28,9 @@
 <!-- nav ends -->
 <!-- Caclulator and Selection -->
 <div id="calculator">
+    <div id="output" class="output"></div>
+    <div id="billOutput" class="output"></div>
+    <div id="statement" class="output"></div>
     <div class = "description">
     </div>
         <div class="optionDiv">
@@ -79,12 +82,12 @@
          </div>
      <div> </div>
      <div class="buttonDiv">
-     <button class="addButton" onclick="addSel()">Add more appliances</button>
+     <button class="addButton" onclick="addSel()">Add more...</button>
      <div class="paddingDiv"></div>
      <button class="calcButton" onclick="calculate()">Calculate</button>
-     <div id="output" class="output"></div>
-     <div id="billOutput" class="output"></div>
-     <div id="statement" class="output"></div>
+     <button class="reset" style="display:none">Go back...</button>
+     
+    
      </div>
 </div>
 <!--calculator ends -->
