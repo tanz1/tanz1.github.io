@@ -4,6 +4,9 @@
 <meta name="viewport" content= "width=device-width, initial-scale=1" charset = "utf-8">
 <link rel="stylesheet" type="text/css" href= "energy.css">
 <link rel="icon" type="image/png" href="icon.png">
+<link rel="icon" sizes="192x192" href="homeIcon.png">
+<link rel="icon" sizes="128x128" href="homeIcon_lowres.png">
+<link rel="apple-touch-icon" sizes="128x128" href="homeIcon_lowres.png">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>Maja Energy Calculator
 </title>
@@ -22,19 +25,30 @@
         <li> </li>
 		<li><a id="tips">Energy Saving Tips</a></li>
         <li> </li>
-		<li><a id="about">Team</a></li>
+		<li><a id="about">About</a></li>
 	</ul>
 </nav>
 <!-- nav ends -->
 <!-- Caclulator and Selection -->
 <div id="calculator">
+    <div id ="label" class="label">
+        <div id ="appLabel" class="appLabel">
+    Appliance
+        </div>
+        <div id ="qtyLabel" class="qtyLabel">
+        Quantity
+        </div>
+        <div id="hrLabel" class="hrLabel">
+        Hours
+        </div>
+    </div>
     <div id="output" class="output"></div>
     <div id="billOutput" class="output"></div>
     <div id="statement" class="output"></div>
     <div class = "description">
     </div>
         <div class="optionDiv">
-              <select class="appliance" name="appliance" id="appliance1">
+            <select class="appliance" name="appliance" id="appliance1">
             </select>       
             <select class = "num" name="quantity" id="quantity1">
             </select>
@@ -75,10 +89,27 @@
         </div>
         <var id = "appendSelect"></var>
         <div class= "paddingDiv"></div>
-        <div class = "optionDiv">
-             <select class = "powercomp" name="powercomp" id="powercomp">
-            <option value = .12>US Standard Power Inc. </option>
+        <div class = "powerDiv">
+            <div class = "centerDiv">
+            <!-- data provided by https://www.electricitylocal.com -->
+            <select class = "powercomp" name="powercomp" id="powercomp">
+            <option value = 0>Select Location</option>
+            <option value = 0> -- New York -- </option>
+            <option value = 0.1174> Albany</option>
+            <option value = 0.1903>Bronx</option>
+            <option value = 0.1903>Brooklyn</option>
+            <option value = 0.1903>Long Island</option>
+            <option value = .2321>Manhattan</option>
+            <option value = 0.1903>Queens</option>
+            <option value = 0>--Not Listed--</option>
+            <option value = .12> Other </option>
             </select>
+            <select class = "days"name="days" id="days">
+            <option value = 0>Select timeframe</option>
+            <option value = 1>Daily rates</option>
+            <option value = 30>Monthly rates</option>
+            <option value = 365>Yearly rates </option></select>
+         </div>
          </div>
      <div> </div>
      <div class="buttonDiv">
@@ -89,17 +120,26 @@
      
     
      </div>
-</div>
+
 <!--calculator ends -->
 <!-- Energy tips -->
 <!-- hiding assistance from https://stackoverflow.com/questions/6094204/hide-div-when-page-load -->
 <div class="energytips" id="energytips" style="display:none">
-Don't forget to turn off the lights!
+<ul>
+<li>Don't forget to turn off the lights!</li>
+<li>Shut off appliances when not in use </li>
+<li>Use cold water when washing clothes </li>
+</ul>
+
+
 </div>
 <!--about us -->
 <div class="aboutus" id="aboutus" style="display:none">
+<ul>
+<li>© 2018 Maja Energy </li>
 <li>Developed by Team Maja.</li>
 <li> Send bug reports to teammaja@gmail.com </li>
+</ul>
 </div>
 <script src="calc.js"></script>
 </body>

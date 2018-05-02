@@ -47,6 +47,24 @@ for (count3 = 5+buttonCount; count3 <= appNum3; count3++)
 //calculate total
 function calculate()
 {
+    var time = document.getElementById("days").value;
+    var timeWord = " "
+    if(time == 1)
+    {
+        timeWord = "Daily";
+    }
+    else if (time == 30)
+    {
+        timeWord = "Monthly";
+    }
+    else if (time == 365)
+    {
+        timeWord = "Yearly"
+    }
+    else
+    {
+        timeWord = "Unknown"
+    }
     var i = 1;
     var total = [];
     var size = document.getElementsByName("quantity").length;
@@ -60,11 +78,11 @@ function calculate()
     }
        var wattTotal = total.reduce(function(a, b){return a+b;});
        var getUtil = document.getElementById('powercomp').value;
-       var bill =(getUtil * wattTotal).toFixed(2);
+       var bill =((getUtil * wattTotal)).toFixed(2);
        
-       document.getElementById("output").innerHTML =  wattTotal.toFixed(3) + ' KWH Used';
-       document.getElementById("billOutput").innerHTML = "$" + bill;
-       document.getElementById("statement").innerHTML = "cost for 1 day"
+       document.getElementById("output").innerHTML =  (wattTotal*time).toFixed(3) + ' KWH Used';
+       document.getElementById("billOutput").innerHTML = "$" + (bill*time).toFixed(2);
+       document.getElementById("statement").innerHTML = timeWord + " cost."
        // assistance from https://stackoverflow.com/questions/16057672/sum-values-from-an-array-in-javascript
 }
 
@@ -110,6 +128,8 @@ $(document).ready(function(){
         $(".calcButton").hide();
         $(".addButton").hide();
         $(".output").show();
+        $(".label").hide();
+        $(".powerDiv").hide();
     });
     $(".reset").click(function(){
         $(".optionDiv").show();
@@ -117,6 +137,8 @@ $(document).ready(function(){
         $(".addButton").show();
         $(".reset").hide();
         $(".output").hide();
+        $(".label").show();
+        $(".powerDiv").show();
         
     });
 });
@@ -125,65 +147,96 @@ $(document).ready(function(){
 JSON 
 DATA
 */
-// source url https://stackoverflow.com/questions/16845373/replace-select-box-options-with-json-result
+// source url https://stackoverflow.com/questions/16845373/replace-select-box-options-with-json-result\
+//energy info sources via bestbuy.com and the EPA
 var json =
     [
-            { text : "Select Appliance" , value : "0"},
-            { text : "Boom box" , value : "8"},
-            { text : "Cable box" , value : "140"},
-            { text : "CD player" , value : "7"},
-            { text : "Ceiling fan" , value : "35"},
-            { text : "Clothes dryer" , value : "2790"},
-            { text : "Clothes washer" , value : "255"},
-            { text : "Coffee maker" , value : "1000"},
-            { text : "Compactors" , value : "400"},
-            { text : "Computer - desktop PC" , value : "75"},
-            { text : "Computer - notebook PC" , value : "25"},
-            { text : "Deep fryer" , value : "1000"},
-            { text : "Desktop computer monitor" , value : "42"},
-            { text : "Dishwasher" , value : "330"},
-            { text : "DVD/VCR" , value : "17"},
-            { text : "Electric blanket" , value : "400"},
-            { text : "Electronic air cleaner/filter" , value : "50"},
-            { text : "Furnace fan" , value : "295"},
-            { text : "Garage door opener" , value : "400"},
-            { text : "Hair dryer" , value : "710"},
-            { text : "Humidifier" , value : "11"},
-            { text : "Iron" , value : "1100"},
-            { text : "Lawn sprinkler" , value : "11"},
-            { text : "Microwave oven" , value : "1500"},
-            { text : "Other" , value : "0"},
-            { text : "Pool pump" , value : "1000"},
-            { text : "Portable spa" , value : "4350"},
-            { text : "Printer (inkjet)" , value : "13"},
-            { text : "Printer (laser)" , value : "250"},
-            { text : "Printer/multi-function" , value : "18"},
-            { text : "Receiver" , value : "28"},
-            { text : "Rechargeable power tool" , value : "13"},
-            { text : "Refrigerator" , value : "225"},
-            { text : "Router/DSL/cable modem" , value : "6"},
-            { text : "Slow cooker" , value : "200"},
-            { text : "Space heater" , value : "1320"},
-            { text : "Stereo systems" , value : "33"},
-            { text : "Television, analog, <40&quot;" , value : "86"},
-            { text : "Television, analog, >40&quot;" , value : "156"},
-            { text : "Television, CRT" , value : "60"},
-            { text : "Television, CRT - projection" , value : "225"},
-            { text : "Television, DLP" , value : "175"},
-            { text : "Television, ED/HD TV, <40&quot;" , value : "150"},
-            { text : "Television, ED/HD TV, >40&quot;" , value : "234"},
-            { text : "Television, LCD" , value : "150"},
-            { text : "Television, plasma" , value : "300"},
-            { text : "Television set-top box" , value : "20"},
-            { text : "Toaster" , value : "1100"},
-            { text : "Toaster oven" , value : "1051"},
-            { text : "Torchiere lamp-halogen" , value : "300"},
+            { text: "Select appliance" , value: "0"  },
+            { text: "--TV--" , value: "0"  },
+            { text : "Samsung 32in 4380083" , value : "52"},
+            { text : "Samsung 32in 3813048" , value : "52"},
+            { text : "Samsung 32in 5871011" , value : "54"},
+            { text : "Samsung 32in 5871010" , value : "64"},
+            { text : "Samsung 40in 5871013" , value : "67"},
+            { text : "Samsung 40in 5754303" , value : "75"},
+            { text : "Samsung 40in 6028900" , value : "84"},
+            { text : "Samsung 40in 5768401" , value : "84"},
+            { text : "Samsung 55in 6051108" , value : "130"},
+            { text : "Samsung 55in 5754303" , value : "130"},
+            { text : "Samsung 55in 6166973" , value : "121"},
+            { text : "Samsung 55in 6176541" , value : "121"},
+            { text : "Samsung 65in 6179811" , value : "130"},
+            { text : "Samsung 65in 5773800" , value : "131"},
+            { text : "Samsung 65in 5773708" , value : "131"},
+            { text : "Samsung 65in 5754306" , value : "157"},
+            { text : "LG 28in 5895500" , value : "57"},
+            { text : "LG 32in 5803109" , value : "85"},
+            { text : "LG 32in 6007201" , value : "81"},
+            { text : "LG 43in 6085106" , value : "168"},
+            { text : "LG 43in 5803102" , value : "76"},
+            { text : "LG 43in 5763401" , value : "92"},
+            { text : "LG 43in 5803106" , value : "105"},
+            { text : "LG 55in 5792910" , value : "132"},
+            { text : "LG 55in 5935300" , value : "174"},
+            { text : "LG 55in 5792901" , value : "100"},
+            { text : "LG 55in 6202831" , value : "127"},
+            { text : "LG 65in 5871011" , value : "220"},
+            { text : "LG 65in 5871011" , value : "167"},
+            { text : "LG 65in 5871011" , value : "220"},
+            { text : "LG 65in 5871011" , value : "224"},
+            { text : "Sony 40in 4804406" , value : "93"},
+            { text : "Sony 43in 5748210" , value : "95"},
+            { text : "Sony 43in 5875644" , value : "111"},
+            { text : "Sony 49in 5748205" , value : "135"},
+            { text : "Sony 49in 5748204" , value : "124"},
+            { text : "Sony 49in 6179728" , value : "219"},
+            { text : "Sony 55in 5875600" , value : "145"},
+            { text : "Sony 55in 5748208" , value : "123"},
+            { text : "Sony 55in 6179706" , value : "264"},
+            { text : "Sony 55in 5770951" , value : "182"},
+            { text : "Generic TV" , value : "150"},
+             { text: "--Game Console--" , value: "0"  },
+            {text: "Nintendo Wii U", value: "32"},
+            {text: "Nintendo Switch", value: "11"},
+            { text : "Xbox One" , value : "112"},
+            { text : "Xbox One S" , value : "120"},
+            { text : "Xbox One X" , value : "135"},
+            { text : "PS4" , value : "140"},
+            { text : "PS4 Pro" , value : "150"},
+            { text: "--Refridgerators--" , value: "0"  },
+            { text : "Frigidaire - 25.6 Cu. Ft. Side-by-Side" , value : "709"},
+            { text : "Insignia 1.7 Cu Ft Mini Fridge" , value : "245"},
+            { text : "Insignia 2.6 Cu Ft Mini Fridge" , value : "250"},
+            { text : "Frigidaire 3.3 Cu Ft Mini Fridge" , value : "220"},
+            { text : "Frigidaire 4.5 Cu Ft Mini Fridge" , value : "265"},
+            { text : "Generic refrigerator" , value : "225"},
+            { text: "--Audio--" , value: "0"  },
+            { text : "Toshiba - 25W Portable CD Boombox - Black" , value : "25"},
+            { text : "Pioneer - Main Unit and Speaker System Combo Set" , value : "10"},
+            { text: "--Household Appliances--" , value: "0"  },
+            { text : "Spectrum (avarage) Cable box" , value : "25"},
+            { text : "Hunter - Vernazza 52 Ceiling Fan - Brushed cocoa" , value : "66"},
+            { text : "GE - 7.2 Cu. Ft. 3-Cycle Electric Dryer" , value : "5760"},
+            { text : "GE - 3.8 Cu. Ft. 11-Cycle Top-Loading Washer" , value : "187"},
+            { text : "Bella - Pro Series 14-Cup Coffeemaker" , value : "1100"},
+            { text : "Elite Platinum - 4-Quart Dual Deep Fryer" , value : "1700"},
+            { text : "Whirlpool - 24 Tall Tub Built-In Dishwasher" , value : "260"},
+            { text : "Magic Chef - 1.6 Cu. Ft. Microwave" , value : "1100"},
+            { text : "Generic microwave" , value : "1500"},
+            { text : "Shark - Ultimate Professional Iron" , value : "1800"},
+            { text : "Dyson - Supersonic Hair Dryer" , value : "1600"},
+            { text : "Slow cooker" , value : "220"},
+            { text : "Insignia™ - Electric Heater - Flat black" , value : "600"},
+            { text : "Toastmaster - 4-Slice Extra-Wide-Slot Toaster" , value : "1500"},
             { text : "Vacuum" , value : "542"},
-            { text : "Video game system" , value : "36"},
-            { text : "Water heater" , value : "4500"},
-            { text : "Waterbed heater" , value : "350"},
-            { text : "Well pump" , value : "725"}
-];
+            { text: "--Computers and Equipment--" , value: "0"  },
+            { text : "Generic desktop PC" , value : "75"},
+            { text : "Generic notebook PC" , value : "25"},
+            { text : "Desktop computer monitor Average" , value : "25"},
+            { text : "Printer Average (inkjet)" , value : "15"},
+            { text : "Printer (laser)" , value : "200"},
+            
+           ]
 //appends JSON to Appliances
 var options=$('<select/>');
     $.each(json, function(id, ob){

@@ -61,6 +61,15 @@ body
     width: 95%;
     font-size: 100%;
 }
+.powerDiv
+{
+    padding-top: 1%;
+    border: none;
+    margin-left:auto;
+    margin-right:auto;
+    width: 95%;
+    font-size: 100%;
+}
 
 
 .appliance
@@ -129,14 +138,14 @@ width: 37%;
 
 .energytips
 {
-    width: 30%;
+    width: 75%;
     margin-left:auto;
     margin-right:auto;
     text-align: center;
 }
 .aboutus
 {
-    width: 30%;
+    width: 75%;
     margin-left:auto;
     margin-right:auto;
     text-align: center;
@@ -234,18 +243,15 @@ a {
     list-style: none;
     margin: 0;
     padding: 0; }
-.powercomp
+.centerDiv
 {   
     margin-left:auto;
     margin-right:auto;
-    left:10%;
-    right:10%;
-    position: relative;
-    width:75%;
+    width:85%;
     height:10%;
     font-family: appfont;
     font-size:2vmax;
-    border:solid;
+
     
 }
 .paddingDiv
@@ -274,3 +280,49 @@ a {
     font-size: 2vmax;
     font-family:appfont;
 }
+.label
+{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    font-size: 2vmax;
+    text-align:center;
+}
+.appLabel
+{
+    width:60%;
+    float:left;
+    text-align:center;
+    
+}
+.qtyLabel
+{
+    width:18%;
+    float:left;
+    text-align:left;
+    
+}
+.hrLabel
+{
+    width:12%;
+    float:left;
+    text-align:center;
+}
+.days
+{
+    height:100%;
+    width:45%;
+    font-family:appfont;
+    font-size:2vmax;
+    border:solid; 
+}
+.powercomp
+{
+    height:100%;
+    width: 45%;
+    font-family:appfont;
+    font-size:2vmax;
+    border:solid; 
+}
+
